@@ -3,6 +3,7 @@ import 'package:untitled12/ApiS.dart';
 import 'package:untitled12/Data/Products.dart';
 
 class ProductProvider with ChangeNotifier{
+  int count=0;
   List<Products> _products=[];
   bool _isloading=false;
 
@@ -14,6 +15,7 @@ class ProductProvider with ChangeNotifier{
     _isloading=true;
     _products=await apiService.fetchProducts();
     _isloading=false;
+
     notifyListeners();
   }
 }
